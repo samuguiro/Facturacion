@@ -7,6 +7,7 @@ public class Parametros {
 
     static String alesur = "Alesur S.A.";
     static String palmacargo = "Palmacargo S.A.";
+    static String proveedor  = "Jose Luis Guinaldo Galan";
 
 
 }

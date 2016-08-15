@@ -1,40 +1,32 @@
 package com.acme.proyecto.facturacion;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity {
+public class Opciones extends ActionBarActivity {
 
-    Button  opciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_opciones);
 
-        opciones = (Button)findViewById(R.id.Options);
+        String proveedor = getIntent().getExtras().getString("proveedor");
 
+        EditText prueba = (EditText)findViewById(R.id.nameProv);
 
-        opciones.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Opciones.class);
-                intent.putExtra("proveedor", Parametros.proveedor);
-                startActivity(intent);
-            }
-        });
+        prueba.setText(proveedor);
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
         return true;
     }
 

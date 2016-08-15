@@ -4,5 +4,16 @@
     <string name="app_name">Facturacion</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="CreateInvoice">Crear Factura</string>
+    <string name="ViewInvoice">Visualizar Factura</string>
+    <string name="Options">Parametros</string>
+    <string name="developedBy">Desarrollado por Samuel Guinadlo Romero</string>
+    <string name="title_activity_opciones">Opciones</string>
+    <string name="name">Nombre</string>
+    <string name="nif">NIF</string>
+    <string name="dirParty">Dirección</string>
+    <string name="cp">Código Postal</string>
+    <string name="invoice">Nº Factura</string>
+    <string name="date">Fecha</string>
 
 </resources>
