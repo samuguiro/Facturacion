@@ -1,13 +1,13 @@
 package com.acme.proyecto.facturacion;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
 
-public class Opciones extends ActionBarActivity {
+public class Opciones extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
