@@ -15,5 +15,7 @@
     <string name="cp">Código Postal</string>
     <string name="invoice">Nº Factura</string>
     <string name="date">Fecha</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

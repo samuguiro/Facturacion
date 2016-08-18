@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
         BDFactura usdbh = new BDFactura(this, "DBUsuarios", null, 1);
 
         SQLiteDatabase db = usdbh.getWritableDatabase();
-        db.execSQL("INSERT INTO Usuarios (codigo, nombre, nif, dir, cp) VALUES("+1+", Jose Luis Guinaldo, 31630280J, Plaza Fragua,"+11408+" ");
+        db.execSQL("INSERT INTO Usuarios (codigo, nombre) VALUES("+ 1 +", '" + Parametros.proveedor + "')");
         db.close();
 
         String[] campos = new String[] {"nombre, nif, dir, cp"};
