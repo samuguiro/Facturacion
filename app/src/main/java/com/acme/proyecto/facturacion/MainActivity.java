@@ -2,6 +2,8 @@ package com.acme.proyecto.facturacion;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,21 +12,36 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-
+    String proveedor;
     Button  opciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        BDFactura usdbh = new BDFactura(this, "DBUsuarios", null, 1);
+
+        SQLiteDatabase db = usdbh.getWritableDatabase();
+        db.execSQL("INSERT INTO Usuarios (codigo, nombre, nif, dir, cp) VALUES("+1+", Jose Luis Guinaldo, 31630280J, Plaza Fragua,"+11408+" ");
+        db.close();
+
+        String[] campos = new String[] {"nombre, nif, dir, cp"};
+
+        final Cursor  c = db.query("Usuarios", campos, null, null, null, null, null);
+
         opciones = (Button)findViewById(R.id.Options);
-
-
         opciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Opciones.class);
-                intent.putExtra("proveedor", Parametros.proveedor);
+                if(c.moveToFirst()) {
+                    do {
+                        proveedor = c.getString(1);
+                    } while(c.moveToNext());
+                }
+
+                //intent.putExtra("proveedor", Parametros.proveedor);
+                intent.putExtra("proveedor", proveedor);
                 startActivity(intent);
             }
         });
