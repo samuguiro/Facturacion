@@ -14,6 +14,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
     String proveedor;
     Button  opciones;
+    Button createAlesur;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,17 @@ public class MainActivity extends Activity {
         String[] campos = new String[] {"nombre, nif, dir, cp"};
 
         final Cursor  c = db.query("Usuarios", campos, null, null, null, null, null);
+
+        createAlesur = (Button)findViewById(R.id.CreateInvoiceAlesur);
+        createAlesur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, InvoiceAlesur.class);
+                //Lógica que obtenga los valores del cliente Alesur y los envie en el objeto Intent creado.
+                startActivity(intent);
+            }
+        });
+
 
         opciones = (Button)findViewById(R.id.Options);
         opciones.setOnClickListener(new View.OnClickListener() {

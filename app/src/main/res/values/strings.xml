@@ -4,7 +4,7 @@
     <string name="app_name">Facturacion</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="CreateInvoice">Crear Factura</string>
+    <string name="CreateInvoiceAle">Crear Factura Alesur</string>
     <string name="ViewInvoice">Visualizar Factura</string>
     <string name="Options">Parametros</string>
     <string name="developedBy">Desarrollado por Samuel Guinadlo Romero</string>
@@ -17,5 +17,7 @@
     <string name="date">Fecha</string>
     <string name="save">Guardar</string>
     <string name="cancel">Cancelar</string>
+    <string name="title_activity_invoice_alesur">InvoiceAlesur</string>
+    <string name="alesur">Alesur S.A.</string>
 
 </resources>
