@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -22,13 +23,15 @@ public class MainActivity extends Activity {
 
         BDFactura usdbh = new BDFactura(this, "DBUsuarios", null, 1);
 
-        SQLiteDatabase db = usdbh.getWritableDatabase();
+        final SQLiteDatabase db = usdbh.getWritableDatabase();
         db.execSQL("INSERT INTO Usuarios (codigo, nombre) VALUES("+ 1 +", '" + Parametros.proveedor + "')");
-        db.close();
+        //db.close();
 
-        String[] campos = new String[] {"nombre, nif, dir, cp"};
+        String[] campos = new String[] {"codigo","nombre"};
+        String[] args = new String[] {"Jose Luis Guinaldo Galan"};
+        //final Cursor c = db.query("Usuarios", campos, "nombre=?", args, null, null, null);
 
-        final Cursor  c = db.query("Usuarios", campos, null, null, null, null, null);
+        final Cursor c = db.rawQuery(" SELECT nombre FROM Usuarios WHERE nombre=?", args);
 
         createAlesur = (Button)findViewById(R.id.CreateInvoiceAlesur);
         createAlesur.setOnClickListener(new View.OnClickListener() {
@@ -48,10 +51,13 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(MainActivity.this, Opciones.class);
                 if(c.moveToFirst()) {
                     do {
-                        proveedor = c.getString(1);
+                        proveedor = c.getString(c.getColumnIndex("nombre"));
+                        Toast toast = Toast.makeText(getApplicationContext(), proveedor,Toast.LENGTH_SHORT);
+                        toast.show();
                     } while(c.moveToNext());
                 }
-
+                //Toast toast = Toast.makeText(getApplicationContext(), c.getString(1),Toast.LENGTH_LONG);
+                //toast.show();
                 //intent.putExtra("proveedor", Parametros.proveedor);
                 intent.putExtra("proveedor", proveedor);
                 startActivity(intent);

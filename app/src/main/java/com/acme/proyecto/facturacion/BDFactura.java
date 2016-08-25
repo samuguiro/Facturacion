@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class BDFactura extends SQLiteOpenHelper {
 
-    String sqlCreate = "CREATE TABLE Usuarios (codigo INTEGER, nombre TEXT, nif TEXT, dir TEXT, cp INTEGER)";
-
+    //String sqlCreate = "CREATE TABLE Usuarios (codigo INTEGER, nombre TEXT, nif TEXT, dir TEXT, cp INTEGER)";
+    String sqlCreate = "CREATE TABLE Usuarios (codigo INTEGER, nombre TEXT)";
     public BDFactura(Context contexto, String   nombre, SQLiteDatabase.CursorFactory factory, int version) {
         super(contexto, nombre,factory,version);
     }
